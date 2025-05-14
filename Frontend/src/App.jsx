@@ -19,6 +19,8 @@ import Profile from './pages/Student/Profile';
 import Jobs from './pages/Student/Jobs';
 import Applications from './pages/Student/Applications';
 import History from './pages/Student/History';
+import Internship from './pages/Internship';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -42,6 +44,9 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/applications" element={<Applications />} />
         <Route path="/history" element={<History />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path='/internships' element={<Internship />} />
+
       </Routes>
 
       <Footer />

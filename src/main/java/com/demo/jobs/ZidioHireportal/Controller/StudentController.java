@@ -4,6 +4,7 @@ import com.demo.jobs.ZidioHireportal.Model.StudentModel;
 import com.demo.jobs.ZidioHireportal.Service.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,33 +16,38 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    // Get all students
+    // ✅ Accessible by USER and ADMIN
     @GetMapping
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public List<StudentModel> getAllStudents() {
-    	System.out.println("hii");
+        System.out.println("hii");
         return studentService.getAllStudents();
     }
 
-    // Get a student by ID
+    // ✅ Accessible by USER and ADMIN
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public StudentModel getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
     }
 
-    // Add a new student
+    // ✅ Accessible by ADMIN only
     @PostMapping("/savestudent")
+    @PreAuthorize("hasRole('ADMIN')")
     public StudentModel addStudent(@RequestBody StudentModel student) {
         return studentService.addStudent(student);
     }
 
-    // Update an existing student
+    // ✅ Accessible by ADMIN only
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public StudentModel updateStudent(@PathVariable Long id, @RequestBody StudentModel student) {
         return studentService.updateStudent(id, student);
     }
 
-    // Delete a student by ID
+    // ✅ Accessible by ADMIN only
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
     }

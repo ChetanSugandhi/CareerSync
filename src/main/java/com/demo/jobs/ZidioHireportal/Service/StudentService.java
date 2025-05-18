@@ -24,7 +24,8 @@ public class StudentService {
     }
 
     public StudentModel addStudent(StudentModel student) {
-        return studentRepository.save(student);
+    	Optional<StudentModel> existingStudent = studentRepository.findByEmail(student.getEmail());
+        return existingStudent.orElseGet(() -> studentRepository.save(student));
     }
 
     public StudentModel updateStudent(Long id, StudentModel student) {
@@ -35,4 +36,21 @@ public class StudentService {
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
+    public void uploadResume(Long id, byte[] resumeData) {
+        StudentModel student = studentRepository.findById(id).orElse(null);
+        if (student != null) {
+            student.setResume(resumeData);
+            studentRepository.save(student);
+        }
+    }
+
+    public byte[] downloadResume(Long id) {
+        return studentRepository.findById(id)
+                .map(StudentModel::getResume)
+                .orElse(null);
+    }
+
+  
+    
+
 }

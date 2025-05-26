@@ -23,6 +23,8 @@ import Internship from './pages/Internship';
 import Contact from './pages/Contact';
 import Recruiter from "./pages/Recruiter/RecruiterPage";
 import Admin from './pages/Admin/Admin';
+import Upload from './pages/Charts/Upload';
+import HistoryCharts from './pages/Charts/History';
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
 
         <Route path='/recruiter' element={<Recruiter />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/upload' element={<Upload/>} />
+        <Route path='/historyCharts' element={<HistoryCharts />} />
 
       </Routes>
 

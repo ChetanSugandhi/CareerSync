@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.3"
+  }
+}

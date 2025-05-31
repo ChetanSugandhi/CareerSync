@@ -98,11 +98,17 @@ const Reports = () => {
           <thead className="bg-red-100 text-red-700">
             <tr>
               <th className="p-3 text-left font-semibold">Title</th>
-              <th className="p-3 text-left font-semibold cursor-pointer" onClick={() => toggleSort('date')}>
+              <th
+                className="p-3 text-left font-semibold cursor-pointer"
+                onClick={() => toggleSort('date')}
+              >
                 Date {sortField === 'date' ? (sortAsc ? '▲' : '▼') : ''}
               </th>
               <th className="p-3 text-left font-semibold">Status</th>
-              <th className="p-3 text-left font-semibold cursor-pointer" onClick={() => toggleSort('views')}>
+              <th
+                className="p-3 text-left font-semibold cursor-pointer"
+                onClick={() => toggleSort('views')}
+              >
                 Views {sortField === 'views' ? (sortAsc ? '▲' : '▼') : ''}
               </th>
             </tr>
@@ -138,7 +144,7 @@ const Reports = () => {
         </table>
       </div>
 
-      <div className="mt-6 bg-red-50 p-4 rounded-md text-red-700 font-semibold flex justify-between items-center">
+      <div className="mt-6 bg-red-300 p-4 rounded-md text-red-900 font-semibold flex justify-between items-center">
         <span>Total Reports: {filteredReports.length}</span>
         <span>Total Views: {totalViews}</span>
       </div>
